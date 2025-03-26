@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { SITE } from 'astrowind:config';
 import { getHomePermalink } from '~/utils/permalinks';
+import Image from '~/components/common/Image.astro';
 
 interface Link {
   text?: string;
@@ -36,19 +37,25 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         <div class="mb-2">
           <a class="inline-block font-bold text-xl" href={getHomePermalink()}>{SITE?.name}</a>
         </div>
-        <div class="text-sm text-muted flex gap-1">
-          {
-            secondaryLinks.map(({ text, href }, index) => (
-              <>
-                {index !== 0 ? ' · ' : ''}
-                <a
-                  class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
-                  href={href}
-                  set:html={text}
-                />
-              </>
-            ))
-          }
+        <div class="text-sm text-muted">
+          <ul class="space-y-2">
+            {
+              secondaryLinks.map(({ text, href }) => (
+                <li>
+                  <a
+                    class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
+                    href={href}
+                    set:html={text}
+                  />
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="col-span-12 lg:col-span-8">
+        <div class="h-full flex items-center justify-center">
+          <img src="/src/assets/images/funding-agencies-1.png" alt="Funding Agencies" class="max-w-full h-auto" />
         </div>
       </div>
       {
@@ -75,6 +82,9 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       }
     </div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
+      <div class="text-sm text-muted">
+        admin-email@seas.upenn.edu
+      </div>
       {
         socialLinks?.length ? (
           <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
@@ -96,9 +106,6 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         )
       }
 
-      <div class="text-sm mr-4 dark:text-muted">
-        <Fragment set:html={footNote} />
-      </div>
     </div>
   </div>
 </footer>

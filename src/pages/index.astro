@@ -21,8 +21,20 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
-  > 
+  <style>
+    /* Custom styles for the Hero component */
+    :global(.hero-section .py-12) {
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+    }
+    :global(.hero-section .md\:py-20) {
+      padding-top: 4rem !important;
+      padding-bottom: 2.5rem !important;
+    }
+  </style>
+
+  <div class="hero-section">
+    <Hero>
       <Fragment slot="title">
         We work at the spatial biology-technology
         interface.
@@ -33,38 +45,59 @@ const metadata = {
           To understand chromatin &#8596; synapse communication in the mammalian brain.</span
         >
       </Fragment>
-  </Hero>
+    </Hero>
+  </div>
 
 
   <!-- Content Widget **************** -->
 
+  <div class="relative">
+    <div class="absolute inset-0 bg-red-900 dark:bg-red-900" style="height: 290px;"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-4">
+      <div class="text-center mb-6">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading text-black">Our Research</h2>
+        <p class="max-w-3xl mx-auto text-xl text-black">
+          The Cremins Laboratory works at the spatial biology-technology interface to investigate the structure-function relationship of connections 
+          across the scales of chromatin, synapses, and circuits in the developing and diseased mammalian brain.
+        </p>
+      </div>
+    </div>
+  </div>
+
   <Content
-    title="Our Research"
-    subtitle='The Cremins Laboratory works at the spatial biology-technology interface to investigate the structure-function relationship of connections across the scales of chromatin, synapses, and circuits in the developing and diseased mammalian brain.'
     items={[
       {
-        title: ' Neurons exhibit elaborate structures at multiple scales, including diverse long-range axonal projections to form circuits, a range of complex dendritic spine geometries at the synapse, and the folding of the 10 nm chromatin fiber into compartments, topologically associating domains (TADs), and long-range looping interactions in the nucleus. ',
+        title: `Neurons exhibit elaborate structures at multiple scales, including diverse long-range axonal projections to form circuits,
+         a range of complex dendritic spine geometries at the synapse, and the folding of the 10 nm chromatin fiber into compartments, 
+         topologically associating domains (TADs), and long-range looping interactions in the nucleus. `,
       },
       {
-        title: 'We have thus far focused on the nucleus to elucidate chromatin’s higher-order folding patterns at kilobase-resolution during neural lineage commitment, maturation, activity stimulation, and in neurological disorders. In mammals, the genetic sequence is >2 meters when stretched out end-to-end. It is folded into exquisite structures to fit into a nucleus roughly the size of a pin’s head. At the lab’s inception, it remained unclear how genomes are folded in a cell type-specific manner below the resolution of a Megabase, and whether and how higher-order folding could deterministically influence genome function. Our major contribution has been to provide early foundational insights into the genome’s structure-function relationship. We have elucidated how chromatin works through long-range mechanisms to govern the establishment of new gene expression, repeat instability, and replication origin firing patterns when mammalian cells transition states in the healthy and diseased brain.',
+        title: `We have thus far focused on the nucleus to elucidate chromatin’s higher-order folding patterns at kilobase-resolution during neural 
+        lineage commitment, maturation, activity stimulation, and in neurological disorders. In mammals, the genetic sequence is >2 meters when stretched 
+        out end-to-end. It is folded into exquisite structures to fit into a nucleus roughly the size of a pin’s head. At the lab’s inception, it remained 
+        unclear how genomes are folded in a cell type-specific manner below the resolution of a Megabase, and whether and how higher-order folding could 
+        deterministically influence genome function. Our major contribution has been to provide early foundational insights into the genome’s structure-function 
+        relationship. We have elucidated how chromatin works through long-range mechanisms to govern the establishment of new gene expression, repeat
+         instability, and replication origin firing patterns when mammalian cells transition states in the healthy and diseased brain.`,
       },
     ]}
     image={{
       src: '~/assets/images/cremins-lab-venn-diagram.png', alt: 'Venn diagram representation of the Cremins Lab research', width: 500, height: 500,
     }}
-    class:list={["pb: 1rem"]}
+    class:list={["pt-0 mt-0"]}
   >
     <Fragment slot="content">
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-red-200 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
   <Hero>
-    <Fragment slot="content">
-      Overall, by adding a spatial, third dimension to our understanding of chromatin’s regulatory mechanisms, the Cremins lab has uncovered foundational basic insights into the genome’s structure-function relationship in the mammalian brain and in neurological disorders. Looking forward, the lab will focus on mechanisms underlying chromatin-synapse communication and a fundamental mystery in neuroscience: how memory is stored over decades despite rapid turnover of proteins/RNAs. The long-term goal of the Cremins lab is to bridge chromatin folding, synaptic plasticity, and neurophysiology to elucidate how the genome’s structure-function relationship influences synaptic defects in intractable neurodevelopmental, neuropsychiatric, and neurodegenerative disorders.
+    <Fragment slot="content" class:list={["pt-0 mt-0"]}>
+      Overall, by adding a spatial, third dimension to our understanding of chromatin’s regulatory mechanisms, the Cremins lab has uncovered 
+      foundational basic insights into the genome’s structure-function relationship in the mammalian brain and in neurological disorders. 
+      Looking forward, the lab will focus on mechanisms underlying chromatin-synapse communication and a fundamental mystery in neuroscience: 
+      how memory is stored over decades despite rapid turnover of proteins/RNAs. The long-term goal of the Cremins lab is to bridge chromatin 
+      folding, synaptic plasticity, and neurophysiology to elucidate how the genome’s structure-function relationship influences synaptic 
+      defects in intractable neurodevelopmental, neuropsychiatric, and neurodegenerative disorders.
     </Fragment>
   </Hero>
 
@@ -131,7 +164,7 @@ const metadata = {
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-red-200 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-red-900 dark:bg-transparent"></div>
     </Fragment>
   </Features2>
 
